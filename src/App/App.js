@@ -1,6 +1,8 @@
 import { createMuiTheme, CssBaseline, makeStyles, ThemeProvider } from '@material-ui/core';
 import Header from '../components/Header';
+import PageHeader from '../components/PageHeader';
 import SideMenu from '../components/SideMenu';
+import PeopleOutlineIcon from "@material-ui/icons/PeopleOutline";
 import './App.css';
 
 // Stoped on 39:20m
@@ -17,6 +19,21 @@ const theme = createMuiTheme({
     },
     background: {
       default: '#f4f5fd'
+    },
+  },
+  shape: {
+    borderRadius: '12px',
+  },
+  overrides: {
+    MuiAppBar: {
+      root: {
+        transform: 'translateZ(0)'
+      }
+    }
+  },
+  props: {
+    MuiIconButton: {
+      disableRipple: true
     }
   }
 });
@@ -36,6 +53,11 @@ function App() {
       <SideMenu />
       <div className={classes.appMain}>
         <Header />
+        <PageHeader
+          title="Page Header"
+          subtitle="Page description"
+          icon={<PeopleOutlineIcon fontSize="large"/>}
+        />
       </div>
       <CssBaseline />
     </ThemeProvider>
